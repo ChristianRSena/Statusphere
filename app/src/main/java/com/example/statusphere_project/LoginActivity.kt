@@ -38,9 +38,9 @@ class LoginActivity : AppCompatActivity() {
                 // Navigate to the main activity or perform any other action
                 // For now, let's just display a toast message
                 Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
-                // You can replace the Toast with an Intent to navigate to another activity
-                // val intent = Intent(this, MainActivity::class.java)
-                // startActivity(intent)
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+
             } else {
                 // Show an error message if username or password is empty
                 Toast.makeText(this, "Please enter username and password", Toast.LENGTH_SHORT).show()
