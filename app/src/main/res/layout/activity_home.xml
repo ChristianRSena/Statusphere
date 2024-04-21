@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- OpenGL Sphere Visualization -->
+    <com.example.statusphere_project.SphereView
+        android:id="@+id/sphereView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <!-- Add Friend Button -->
+    <Button
+        android:id="@+id/btnAddFriend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Friend"
+        android:layout_below="@id/sphereView"
+        android:layout_marginTop="16dp" />
+
+    <!-- Friends and Groups RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewFriends"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/btnAddFriend"
+        android:layout_marginTop="16dp" />
+
+</RelativeLayout>
