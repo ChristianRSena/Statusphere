@@ -5,6 +5,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.example.statusphere_project.R
+import java.sql.*
 
 class LoginActivity : AppCompatActivity() {
 
@@ -39,3 +40,85 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 }
+
+
+class DatabaseHelper{
+
+    private val connectionString = "jdbc:sqlserver://statusphere-server.database.windows.net:1433;databaseName=statusphere-server/Statusphere"
+    private val username = "sena"
+    private val password = "your_password"
+
+    fun authenticateUser(username: String, password: String): Boolean {
+        var isAuthenticated = false
+        var connection: Connection? = null
+
+        try {
+            // Establish connection
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver")
+            connection = DriverManager.getConnection(connectionString, username, password)
+
+            // Execute authentication query
+            val query = "SELECT COUNT(*) FROM Accounts.UserAccounts WHERE Username = ? AND Password = ?"
+            val preparedStatement = connection.prepareStatement(query)
+            preparedStatement.setString(1, username)
+            preparedStatement.setString(2, password)
+            val resultSet = preparedStatement.executeQuery()
+
+            // Check authentication result
+            if (resultSet.next() && resultSet.getInt(1) > 0) {
+                isAuthenticated = true
+            }
+        } catch (e: SQLException) {
+            e.printStackTrace()
+            // Handle database errors
+        } finally {
+            // Close connection
+            connection?.close()
+        }
+
+        return isAuthenticated
+    }
+}
+
+/*class DatabaseHelper {
+
+    fun connectToDatabase(): Connection? {
+        val connectionUrl = "jdbc:sqlserver://statusphere-server.database.windows.net;databaseName=statusphere-server/Statusphere;user=sena;password=your_password;"
+        var connection: Connection? = null
+
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver")
+            connection = DriverManager.getConnection(connectionUrl)
+        } catch (e: SQLException) {
+            e.printStackTrace()
+        }
+
+        return connection
+    }
+
+    fun authenticateUser(username: String, password: String): Boolean {
+        var isAuthenticated = false
+        val connection = connectToDatabase()
+
+        if (connection != null) {
+            try {
+                val statement = connection.prepareStatement("SELECT * FROM Users WHERE username = ? AND password = ?")
+                statement.setString(1, username)
+                statement.setString(2, password)
+                val resultSet = statement.executeQuery()
+                if (resultSet.next()) {
+                    // User authenticated successfully
+                    isAuthenticated = true
+                }
+                statement.close()
+                connection.close()
+            } catch (e: SQLException) {
+                e.printStackTrace()
+            }
+        }
+
+        return isAuthenticated
+    }
+}
+
+ */
