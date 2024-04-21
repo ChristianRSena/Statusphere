@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Statusphere_Project</string>
+    <string name="user_icon_description">Placeholder Icon for users</string>
+
 </resources>
