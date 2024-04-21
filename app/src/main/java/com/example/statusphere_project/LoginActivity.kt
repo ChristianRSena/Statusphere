@@ -54,7 +54,7 @@ class DatabaseHelper{
 
     private val connectionString = "jdbc:sqlserver://statusphere-server.database.windows.net:1433;databaseName=statusphere-server/Statusphere"
     private val username = "sena"
-    private val password = "your_password"
+    private val password = "temp"
 
     fun authenticateUser(username: String, password: String): Boolean {
         var isAuthenticated = false
