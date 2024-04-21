@@ -1,10 +1,10 @@
+package com.example.statusphere_project
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.statusphere_project.R
 import java.sql.*
 
 class LoginActivity : AppCompatActivity() {
@@ -35,8 +35,8 @@ class LoginActivity : AppCompatActivity() {
 
             // Check if username and password are correct (for demo purpose, we'll just check if they're not empty)
             if (username.isNotEmpty() && password.isNotEmpty()) {
-                // Navigate to the main activity or perform any other action
-                // For now, let's just display a toast message
+                // Navigate to the main activity
+
                 Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
