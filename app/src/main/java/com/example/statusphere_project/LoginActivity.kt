@@ -6,7 +6,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import java.sql.*
+import java.sql.Connection
+import java.sql.DriverManager
 import java.sql.PreparedStatement
+import java.sql.ResultSet
 
 
 class LoginActivity : AppCompatActivity() {
@@ -73,6 +76,7 @@ class LoginActivity : AppCompatActivity() {
         private val username = "sena"
         private val password = "temp"
 
+
         public fun authenticateUser(username: String, password: String): Boolean {
             var isAuthenticated = false
             var connection: Connection? = null
@@ -99,6 +103,7 @@ class LoginActivity : AppCompatActivity() {
                 // Handle database errors
             } finally {
                 val IdQuery = "SELECT user_id FROM Users WHERE username = ? AND password = ?;"
+
                 preparedStatement.setString(1, username)
                 preparedStatement.setString(2, password)
                 val resultSet = preparedStatement.executeQuery()
