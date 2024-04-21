@@ -46,7 +46,7 @@ class LoginActivity : AppCompatActivity() {
 
                     intent.putExtra("userId", userId)
 
-                        startActivity(intent)
+                    startActivity(intent)
 
                 } else {
                     // Show an error message if username or password is empty
@@ -56,6 +56,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
+
     private fun saveUserId(userId: Int) {
         // Save the userId to SharedPreferences or any other storage mechanism
 
@@ -108,15 +109,15 @@ class LoginActivity : AppCompatActivity() {
                     // No user found with the provided credentials
 
 
-                // Close connection
-                connection?.close()
-            }
+                    // Close connection
+                    connection?.close()
+                }
 
-            return isAuthenticated
+                return isAuthenticated
+            }
         }
     }
 }
-
 
 
 
