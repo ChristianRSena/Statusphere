@@ -1,7 +1,3 @@
-Certainly! Here's a basic README.md for your GitHub repository:
-
----
-
 # Statusphere
 
 Statusphere is a communications application designed for friends and family, enabling users to check on each other's well-being through simple notifications. Unlike traditional location-based tracking apps, Statusphere focuses on asking and receiving responses regarding safety status. The application utilizes notifications to prompt users to confirm their safety status, which is then visually represented on a 3D globe rendered using OpenGL.
