@@ -102,7 +102,9 @@ class LoginActivity : AppCompatActivity() {
                 e.printStackTrace()
                 // Handle database errors
             } finally {
+                connection?.let { conn ->
                 val IdQuery = "SELECT user_id FROM Users WHERE username = ? AND password = ?;"
+                val preparedStatement = connection.prepareStatement(IdQuery)
 
                 preparedStatement.setString(1, username)
                 preparedStatement.setString(2, password)
@@ -119,11 +121,12 @@ class LoginActivity : AppCompatActivity() {
                 }
 
                 return isAuthenticated
+
             }
         }
     }
 }
-
+}
 
 
 /*class DatabaseHelper {
