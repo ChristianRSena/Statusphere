@@ -22,7 +22,7 @@
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="69dp"
         android:background="@drawable/edit_text_background"
-        android:drawableLeft="@drawable/ic_user"
+        
         android:hint="Username"
         android:padding="12dp" />
 
@@ -34,10 +34,11 @@
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="13dp"
         android:background="@drawable/edit_text_background"
-        android:drawableLeft="@drawable/ic_lock"
+        
         android:hint="Password"
         android:inputType="textPassword"
-        android:padding="12dp" />
+        android:padding="12dp"
+        android:drawablePadding="8dp"/>
 
     <Button
         android:id="@+id/buttonLogin"
