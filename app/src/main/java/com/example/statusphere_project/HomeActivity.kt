@@ -7,6 +7,12 @@ import java.sql.PreparedStatement
 import java.sql.ResultSet
 import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
+import android.content.Context
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.util.AttributeSet
+import android.view.View
 
 class HomeActivity : AppCompatActivity() {
 
@@ -90,4 +96,20 @@ class DatabaseDAO {
 
         return groups
     }
+}
+
+class SphereView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
+
+    private val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.BLUE // Set the sphere color
+        style = Paint.Style.FILL
+    }
+
+    override fun onDraw(canvas: Canvas) {
+        super.onDraw(canvas)
+
+        // Draw the sphere
+        canvas.drawCircle((width / 2).toFloat(), (height / 2).toFloat(), 100f, paint)
+    }
+
 }

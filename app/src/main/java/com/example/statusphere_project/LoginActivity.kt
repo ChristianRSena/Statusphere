@@ -72,19 +72,18 @@ class LoginActivity : AppCompatActivity() {
     class DatabaseHelper {
 
         private val connectionString =
-            "jdbc:sqlserver://statusphere-server.database.windows.net:1433;databaseName=statusphere-server/Statusphere"
+            "jdbc:sqlserver://statusphere-server.database.windows.net:1433;databaseName=statusphere-server"
         private val username = "sena"
         private val password = "temp"
 
-
-        public fun authenticateUser(username: String, password: String): Boolean {
+        fun authenticateUser(username: String, password: String): Boolean {
             var isAuthenticated = false
             var connection: Connection? = null
 
             try {
                 // Establish connection
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver")
-                connection = DriverManager.getConnection(connectionString, username, password)
+                connection = DriverManager.getConnection(connectionString, this.username, this.password)
 
                 // Execute authentication query
                 val query =
@@ -103,30 +102,22 @@ class LoginActivity : AppCompatActivity() {
                 // Handle database errors
             } finally {
                 connection?.let { conn ->
-                val IdQuery = "SELECT user_id FROM Users WHERE username = ? AND password = ?;"
-                val preparedStatement = connection.prepareStatement(IdQuery)
-
-                preparedStatement.setString(1, username)
-                preparedStatement.setString(2, password)
-                val resultSet = preparedStatement.executeQuery()
-                if (resultSet.next()) {
-                    val userId = resultSet.getInt("user_id")
-                    // userId contains the user ID of the authenticated user
-                } else {
-                    // No user found with the provided credentials
-
-
-                    // Close connection
-                    connection?.close()
+                    try {
+                        // Close connection
+                        conn.close()
+                    } catch (ex: SQLException) {
+                        ex.printStackTrace()
+                        // Handle closing connection error
+                    }
                 }
-
-                return isAuthenticated
-
             }
+
+            return isAuthenticated
         }
     }
+
 }
-}
+
 
 
 /*class DatabaseHelper {
