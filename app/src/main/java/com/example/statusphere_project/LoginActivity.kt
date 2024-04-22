@@ -76,6 +76,42 @@ class LoginActivity : AppCompatActivity() {
         private val username = "sena"
         private val password = "temp"
 
+        fun searchFriendByEmail(email: String): Boolean {
+            var friendFound = false
+            var connection: Connection? = null
+            var preparedStatement: PreparedStatement? = null
+            var resultSet: ResultSet? = null
+
+            try {
+                // Establish connection
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver")
+                connection = DriverManager.getConnection(connectionString, username, password)
+
+                // Prepare SQL statement
+                val query = "SELECT COUNT(*) FROM Users WHERE Email = ?"
+                preparedStatement = connection.prepareStatement(query)
+                preparedStatement.setString(1, email)
+
+                // Execute query
+                resultSet = preparedStatement.executeQuery()
+
+                // Check if friend is found
+                if (resultSet.next() && resultSet.getInt(1) > 0) {
+                    friendFound = true
+                }
+            } catch (e: SQLException) {
+                e.printStackTrace()
+                // Handle database errors
+            } finally {
+                // Close resources
+                resultSet?.close()
+                preparedStatement?.close()
+                connection?.close()
+            }
+
+            return friendFound
+        }
+
         fun authenticateUser(username: String, password: String): Boolean {
             var isAuthenticated = false
             var connection: Connection? = null
