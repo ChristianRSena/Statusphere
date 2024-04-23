@@ -53,20 +53,14 @@
         android:textColor="@color/white"
         android:textSize="16sp" />
 
-    <ImageView
-        android:id="@+id/imageViewUserIcon"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
-        android:src="@drawable/ic_user"
-        android:contentDescription="@string/user_icon_description"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp" />
+
 
     <Button
         android:id="@+id/buttonCreateAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10"
         android:layout_marginBottom="5dp"
         android:text="Create Account" />
 
