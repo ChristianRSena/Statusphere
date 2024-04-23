@@ -10,6 +10,8 @@ import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.PreparedStatement
 import java.sql.ResultSet
+import android.app.ActivityOptions
+
 
 
 class LoginActivity : AppCompatActivity() {
@@ -28,7 +30,12 @@ class LoginActivity : AppCompatActivity() {
         createAccountButton.setOnClickListener {
             // Navigate to the Create Account activity
             val intent = Intent(this, CreateAccountActivity::class.java)
-            startActivity(intent)
+            val options = ActivityOptions.makeCustomAnimation(
+                this,
+                R.anim.slide_in_right,
+                R.anim.slide_out_left
+            )
+            startActivity(intent, options.toBundle())
 
 
             editTextUsername = findViewById(R.id.editTextUsername)
@@ -46,10 +53,16 @@ class LoginActivity : AppCompatActivity() {
 
                     Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, HomeActivity::class.java)
+                    val options = ActivityOptions.makeCustomAnimation(
+                        this,
+                        R.anim.slide_in_right,
+                        R.anim.slide_out_left
+                    )
 
                     intent.putExtra("userId", userId)
 
-                    startActivity(intent)
+                    startActivity(intent, options.toBundle())
+
 
                 } else {
                     // Show an error message if username or password is empty
