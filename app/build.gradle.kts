@@ -17,6 +17,8 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -44,7 +46,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.31")
     implementation("mysql:mysql-connector-java:8.0.26")
     implementation("mysql:mysql-connector-java:8.0.28")
-    implementation("com.google.android.gms:play-services-ads:20.5.0")
+    implementation("com.google.android.gms:play-services-ads:23.0.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

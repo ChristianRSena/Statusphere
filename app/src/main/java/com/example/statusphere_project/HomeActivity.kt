@@ -18,8 +18,8 @@ import android.widget.Button
 import java.sql.SQLException
 import android.widget.Toast
 import android.widget.EditText
-
-
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener
 
 
 class HomeActivity : AppCompatActivity() {
@@ -30,6 +30,9 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        MobileAds.initialize(this, OnInitializationCompleteListener {
+
+        })
         val dao = DatabaseDAO()
         addButton = findViewById(R.id.btnAddFriend)
 
