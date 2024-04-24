@@ -5,7 +5,8 @@
     android:orientation="vertical">
 
     <!-- OpenGL Sphere Visualization -->
-    <view class="com.example.statusphere_project.HomeActivity$SphereView"
+    <view
+        class="com.example.statusphere_project.HomeActivity$SphereView"
         android:id="@+id/sphereView"
         android:layout_width="match_parent"
         android:layout_height="200dp" />
@@ -15,17 +16,31 @@
         android:id="@+id/recyclerViewFriends"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:layout_weight="1" />
 
-    <!-- Add Friend Button -->
-    <Button
-        android:id="@+id/btnAddFriend"
-        android:layout_width="wrap_content"
+    <!-- Add Friend and Groups Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Friend"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp" />
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/btnAddFriend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Friend" />
+
+        <Button
+            android:id="@+id/btnGroups"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Groups"
+            android:layout_marginStart="16dp" />
+
+    </LinearLayout>
 
     <!-- AdView -->
     <com.google.android.gms.ads.AdView
