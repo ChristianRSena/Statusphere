@@ -39,6 +39,7 @@ To get started with Statusphere, follow these steps:
 - **Kotlin**: Programming language used for developing the Android application.
 - **OpenGL**: Graphics library used for rendering the 3D globe visualization.
 - **Firebase**: Backend service used for authentication, data storage, and real-time communication.
+- **Microsoft Azure**: Backend service used for SQL data storage.
 
 ## Contributing
 
