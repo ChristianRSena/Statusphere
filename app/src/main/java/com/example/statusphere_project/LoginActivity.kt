@@ -36,6 +36,7 @@ class LoginActivity : AppCompatActivity() {
                 R.anim.slide_out_left
             )
             startActivity(intent, options.toBundle())
+        }
 
 
             editTextUsername = findViewById(R.id.editTextUsername)
@@ -51,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
                 if (username.isNotEmpty() && password.isNotEmpty()) {
                     // Navigate to the main activity
 
-                    Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
+
                     val intent = Intent(this, HomeActivity::class.java)
                     val options = ActivityOptions.makeCustomAnimation(
                         this,
@@ -70,7 +71,7 @@ class LoginActivity : AppCompatActivity() {
                         .show()
                 }
             }
-        }
+        
     }
 
     private fun saveUserId(userId: Int) {

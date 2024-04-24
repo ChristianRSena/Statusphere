@@ -47,17 +47,25 @@ class HomeActivity : AppCompatActivity() {
         MobileAds.initialize(this, OnInitializationCompleteListener {
 
         })
+
         val dao = DatabaseDAO()
         addButton = findViewById(R.id.btnAddFriend)
+        var isFriendFound = false
+
 
         val userId =
             intent.getIntExtra("userId", -1) // -1 is a default value if userId is not found
         databaseHelper = DatabaseHelper()
         addButton.setOnClickListener {
-            val email = editTextEmail.text.toString().trim()
+            val email: String? = intent.getStringExtra("userId")
+            if (email != null) {
+                // Perform a search in the database for the provided email address
+                val isFriendFound = databaseHelper.searchFriendByEmail(email)
+            } else {
+                // Handle the case where userId extra is not found
+            }
 
-            // Perform a search in the database for the provided email address
-            val isFriendFound = databaseHelper.searchFriendByEmail(email)
+
 
             if (isFriendFound) {
                 // Friend found in the database, perform appropriate action (e.g., add friend to list)
@@ -82,6 +90,7 @@ class HomeActivity : AppCompatActivity() {
             // Add code to initialize and display user's friends, groups, and sphere visualization
         }
     }
+
 
     class DatabaseDAO {
 
