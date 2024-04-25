@@ -5,5 +5,10 @@
     <color name="light_gray">#CCCCCC</color>
     <color name="button_background_color">#FF4081</color>
 
+    <color name="weak">#FF4646</color>
+    <color name="medium">#ff8f00</color>
+    <color name="strong">#FCCA3F</color>
+    <color name="bulletproof">#00c853</color>
+
 
 </resources>

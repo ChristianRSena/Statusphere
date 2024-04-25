@@ -47,6 +47,7 @@ dependencies {
     implementation("mysql:mysql-connector-java:8.0.26")
     implementation("mysql:mysql-connector-java:8.0.28")
     implementation("com.google.android.gms:play-services-ads:23.0.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

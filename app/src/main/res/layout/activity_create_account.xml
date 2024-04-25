@@ -47,6 +47,25 @@
         android:textStyle="bold"
         android:layout_marginBottom="8dp"/>
 
+    <TextView
+        android:id="@+id/strength_level_txt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:textSize="12sp"
+        />
+
+    <View
+        android:id="@+id/strength_level_indicator"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/light_gray"
+        />
+
+
+
     <!-- Confirm Password -->
     <TextView
         android:layout_width="match_parent"
