@@ -16,7 +16,7 @@ To get started with Statusphere, follow these steps:
 1. Clone the repository to your local machine:
 
    ```
-   git clone https://github.com/your-username/statusphere.git
+   git clone https://github.com/ChristianRSena/statusphere.git
    ```
 
 2. Open the project in Android Studio.
