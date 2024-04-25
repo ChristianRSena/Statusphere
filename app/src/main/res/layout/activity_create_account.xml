@@ -5,35 +5,63 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Email EditText -->
+    <!-- Email -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"/>
+
     <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
+        android:hint="Enter your email"
         android:inputType="textEmailAddress"
         android:layout_marginBottom="16dp"/>
 
-    <!-- Password EditText -->
+    <!-- Password -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"/>
+
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
+        android:hint="Enter your password"
         android:inputType="textPassword"
         android:layout_marginBottom="16dp"/>
 
-    <!-- Confirm Password EditText -->
+    <!-- Password Strength Indicator -->
+    <TextView
+        android:id="@+id/textViewPasswordStrength"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Password Strength"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Confirm Password -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confirm Password"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"/>
+
     <EditText
         android:id="@+id/editTextConfirmPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Confirm Password"
+        android:hint="Confirm your password"
         android:inputType="textPassword"
         android:layout_marginBottom="16dp"/>
-
-    <!-- Other Required Fields -->
-    <!-- Add EditText fields for other required information here -->
 
     <!-- Create Account Button -->
     <Button
