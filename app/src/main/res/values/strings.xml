@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">Statusphere_Project</string>
     <string name="user_icon_description">Placeholder Icon for users</string>
+    <string name="password_requirements">
+    1. One lowercase letter\n
+    2. One uppercase letter\n
+    3. One special character\n
+    4. One number\n
+    5. 16 characters minimum
+    </string>
 
 </resources>
