@@ -43,6 +43,6 @@ To get started with Statusphere, follow these steps:
 
 ## For Professor
 
--This is a University Project
--To run this application, download the the Zip and open it in Android Studio. From there, simply click "Run" at the top and that will open the application in an emulated Android Environment.
--[Statusphere Documentation (PDF)](https://github.com/ChristianRSena/statusphere/raw/master/Statusphere.pdf) | | [Statusphere Presentation](https://drive.google.com/file/d/1StU1Fzr8sctmihWYfYt0cTNA_rRo2NpH/view?usp=drive_link)
+- This is a University Project
+- To run this application, download the the Zip and open it in Android Studio. From there, simply click "Run" at the top and that will open the application in an emulated Android Environment.
+- [Statusphere Documentation (PDF)](https://github.com/ChristianRSena/statusphere/raw/master/Statusphere.pdf) | | [Statusphere Presentation](https://drive.google.com/file/d/1StU1Fzr8sctmihWYfYt0cTNA_rRo2NpH/view?usp=drive_link)
