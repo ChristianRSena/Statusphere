@@ -31,7 +31,8 @@ import android.opengl.EGL14
 import android.opengl.GLSurfaceView.RENDERMODE_CONTINUOUSLY
 import android.view.MotionEvent
 import javax.microedition.khronos.egl.EGLConfig
-
+import android.app.AlertDialog
+import android.view.LayoutInflater
 
 
 
@@ -40,6 +41,77 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var databaseHelper: DatabaseHelper
     private lateinit var addButton: Button
     private lateinit var editTextEmail: EditText
+    private fun showAddFriendDialog() {
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_add_friend, null)
+        val dialog = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .create()
+
+        val etFriendName = dialogView.findViewById<EditText>(R.id.etFriendName)
+        val btnSend = dialogView.findViewById<Button>(R.id.btnSend)
+
+        btnSend.setOnClickListener {
+            val friendName = etFriendName.text.toString().trim()
+            if (friendName.isNotEmpty()) {
+                addFriend(userId = 1, friendName)
+                dialog.dismiss()
+            } else {
+                etFriendName.error = "Please enter a friend's name"
+            }
+        }
+
+        dialog.show()
+    }
+    fun addFriend(userId: Int, friendName: String): Boolean {
+        var isAdded = false
+        var connection: Connection? = null
+        val connectionString = "jdbc:sqlserver://statusphere-server.database.windows.net:1433;databaseName=statusphere-server"
+        val username = "sena"
+        val password = "temp"
+
+        try {
+            // Establish connection
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver")
+            connection = DriverManager.getConnection(connectionString, username, password)
+
+            // Check if the friend already exists in the Friends schema
+            val checkQuery = "SELECT COUNT(*) FROM Friends WHERE Name = ?"
+            val checkStatement = connection.prepareStatement(checkQuery)
+            checkStatement.setString(1, friendName)
+            val resultSet = checkStatement.executeQuery()
+            resultSet.next()
+
+            if (resultSet.getInt(1) == 0) {
+                // Friend doesn't exist, insert a new record
+                val insertQuery = "INSERT INTO Friends (UserId, Name) VALUES (?, ?)"
+                val insertStatement = connection.prepareStatement(insertQuery)
+                insertStatement.setInt(1, userId)
+                insertStatement.setString(2, friendName)
+                val rowsInserted = insertStatement.executeUpdate()
+
+                if (rowsInserted > 0) {
+                    isAdded = true
+                }
+            } else {
+
+            }
+        } catch (e: SQLException) {
+            e.printStackTrace()
+            // Handle database errors
+        } finally {
+            connection?.let { conn ->
+                try {
+                    // Close connection
+                    conn.close()
+                } catch (ex: SQLException) {
+                    ex.printStackTrace()
+                    // Handle closing connection error
+                }
+            }
+        }
+
+        return isAdded
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +119,7 @@ class HomeActivity : AppCompatActivity() {
         MobileAds.initialize(this, OnInitializationCompleteListener {
 
         })
+        addButton.setOnClickListener { showAddFriendDialog() }
 
         val dao = DatabaseDAO()
         addButton = findViewById(R.id.btnAddFriend)
