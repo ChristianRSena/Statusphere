@@ -1,0 +1,10 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.StatusphereNEW" parent="Theme.AppCompat.DayNight.DarkActionBar"></style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <!-- Customizations for the AppBarLayout can go here -->
+    </style>
+
+
+</resources>
