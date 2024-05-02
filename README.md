@@ -44,3 +44,4 @@ To get started with Statusphere, follow these steps:
 ## Contributing
 
 This is a University Project
+[Statusphere Documentation (PDF)](https://github.com/ChristianRSena/statusphere/raw/main/Statusphere.pdf)
